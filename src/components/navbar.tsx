@@ -12,6 +12,22 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
 
+  const [bgClass, setBgClass] = useState('bg-transparent backdrop-blur-md');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          setBgClass('bg-white/95 backdrop-blur-xl');
+        } else {
+          setBgClass('bg-transparent backdrop-blur-md');
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
   const navLinks = [
     { path: '/', label: 'Bosh Sahifa' },
     { path: '/about', label: 'Haqida' },
@@ -39,7 +55,9 @@ export default function Navbar() {
   };
 
   return (
-    <header className='fixed top-0 w-full bg-white/95 backdrop-blur-xl z-50 shadow-lg border-b border-opacity-10 border-rose-300'>
+    <header
+      className={`fixed top-0 w-full z-50 shadow-lg border-b border-opacity-10 border-rose-300 ${bgClass}`}
+    >
       <nav className='relative'>
         <Container>
           <div className='flex justify-between items-center h-20'>
@@ -56,13 +74,12 @@ export default function Navbar() {
               </button>
               <Link href='/' className='flex items-center gap-2 group'>
                 <GiDiamondTrophy className='text-rose-600 text-3xl' />
-                <span className='font-cormorant text-3xl font-bold text-gray-800 tracking-wide'>
+                <span className='font-cormorant text-[20px] sm:text-sm md:text-[27px] font-bold text-gray-800 tracking-wide'>
                   Gulbahor <span className='text-rose-500'>Qodirova</span>
                 </span>
               </Link>
             </div>
 
-            {/* Desktop navigatsiya */}
             <div className='hidden md:flex items-center gap-10'>
               <ul className='flex gap-10'>
                 {navLinks.map((link, index) => (
