@@ -27,7 +27,7 @@ export default function Navbar() {
     }
   }, [menuOpen]);
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     setMenuOpen(false);
     router.push(path);
   };
