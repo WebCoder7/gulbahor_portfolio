@@ -49,7 +49,7 @@ const ProfileCard = () => {
           whileHover={{ rotate: 5, scale: 1.05 }}
           className='group relative w-56 h-56 mx-auto mb-8'
         >
-          <div className='absolute inset-0 bg-gradient-to-br from-fuchsia-400 to-pink-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity' />
+          <div className='absolute inset-0  bg-gradient-to-br from-fuchsia-400 to-pink-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity' />
           <img
             src='/'
             alt=''

@@ -5,3 +5,9 @@ body {
   padding-top: 100px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .hover-float {
+    animation: float-tag 3s ease-in-out infinite;
+  }
+}
