@@ -1,25 +1,35 @@
 // tailwind.config.js
 module.exports = {
+  content: [
+    // ... mavjud sozlamalar
+  ],
   theme: {
     extend: {
       animation: {
-        'float-tag': 'float-tag 3s ease-in-out infinite',
-        'gradient-rotate': 'gradient-rotate 6s linear infinite',
+        'particle-float': 'particle-float 6s ease-in-out infinite',
+        'text-shimmer': 'text-shimmer 3s linear infinite',
+        shine: 'shine 2s linear infinite',
+        'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
-        'float-tag': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-3px)' }
+        'particle-float': {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '25%': { transform: 'translate(-5px, -10px) rotate(-5deg)' },
+          '50%': { transform: 'translate(5px, 5px) rotate(5deg)' },
+          '75%': { transform: 'translate(10px, -5px) rotate(3deg)' },
         },
-        'gradient-rotate': {
-          '0%': { 'background-position': '0% 50%' },
-          '50%': { 'background-position': '100% 50%' },
-          '100%': { 'background-position': '0% 50%' }
-        }
+        'text-shimmer': {
+          from: { 'background-position': '200% center' },
+        },
+        shine: {
+          to: { 'background-position': '200% center' },
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '0.1' },
+        },
       },
-      backgroundImage: {
-        'conic-gradient': 'conic-gradient(from 90deg at 50% 50%, #f472b6 0%, #f9a8d4 50%, #f472b6 100%)'
-      }
-    }
-  }
-}
+    },
+  },
+  plugins: [],
+};
