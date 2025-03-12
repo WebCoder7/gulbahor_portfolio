@@ -1,22 +1,68 @@
-import React from 'react';
+// AboutMe.tsx
+'use client';
+import { motion } from 'framer-motion';
+import { FaRegHeart, FaMagic } from 'react-icons/fa';
 
 export default function AboutMe() {
   return (
-    <div className='flex-1 flex items-center justify-center min-h-[50vh] md:min-h-[60vh] bg-[#121212] p-4 sm:p-6 lg:p-8 rounded-xl text-white'>
-      <div className='text-center max-w-2xl lg:max-w-3xl'>
-        <h1 className='mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-300'>
-          Assalomu alaykum, Men
-          <span className='text-green-700'> Qodirova Gulbahor</span>man
+    <div className="relative flex-1 flex items-center justify-center min-h-[70vh] bg-gradient-to-br from-pink-100 to-fuchsia-100 p-8 lg:p-12 rounded-[2rem] shadow-2xl overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 animate-gradient-rotate bg-[conic-gradient(from_90deg_at_50%_50%,#f472b6_0%,#f9a8d4_50%,#f472b6_100%)] opacity-10" />
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative z-10 text-center max-w-4xl space-y-8"
+      >
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          className="inline-flex items-center gap-3 bg-white/90 px-8 py-3 rounded-full border-2 border-pink-100 shadow-lg"
+        >
+          <FaMagic className="text-fuchsia-600 animate-spin-slow" />
+          <span className="text-lg font-bold bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
+            Yangi loyihalar yutuqlari
+          </span>
+        </motion.div>
+
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+          <span className="bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
+            Salom, Men Gulbahor
+          </span>
         </h1>
-        <p className='mt-3 sm:mt-4 text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed'>
-          Veb dasturchi va dizayner sifatida natijaga yo&apos;naltirilgan
-          ishchi. Veb-saytlar va veb-ilovalarni yaratish va boshqarish orqali
-          umumiy mahsulot muvaffaqiyatiga erishish maqsadimdir.
+
+        <p className="text-xl sm:text-2xl text-pink-800/90 leading-relaxed max-w-3xl mx-auto font-medium">
+          Veb-dizayn va taʼlim sohasida{' '}
+          <span className="text-fuchsia-600 font-bold">10+ yillik tajriba</span> bilan
+          yorqin va innovatsion yechimlar yaratishga ixtisoslashganman. Har bir loyihamda
+          <span className="text-pink-600"> goʻzallik</span> va{' '}
+          <span className="text-fuchsia-600">funktsionallik</span> uygʻunligini ta'minlayman.
         </p>
-        <button className=' mt-4 group group-hover:before:duration-500 group-hover:after:duration-1000 after:duration-500 hover:border-sky-300 duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-2 hover:before:top-8 hover:before:right-16 hover:after:scale-150 hover:after:blur-none hover:before:-bottom-8 hover:before:blur-none hover:bg-sky-300 hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-sky-900 relative bg-sky-800 h-12 sm:h-14 md:h-16 w-48 sm:w-56 md:w-64 border text-left p-2 sm:p-3 text-gray-50 text-sm sm:text-base font-bold rounded-lg overflow-hidden before:absolute before:w-8 sm:before:w-10 md:before:w-12 before:h-8 sm:before:h-10 md:before:h-12 before:right-0.5 sm:before:right-1 before:top-0.5 sm:before:top-1 before:z-10 before:bg-sky-400 before:rounded-full before:blur-lg after:absolute after:z-10 after:w-16 sm:after:w-18 md:after:w-20 after:h-16 sm:after:h-18 md:after:h-20 after:right-4 sm:after:right-6 md:after:right-8 after:top-2 sm:after:top-3 after:bg-cyan-600 after:rounded-full after:blur'>
-          Loyihalar
-        </button>
-      </div>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all font-bold text-xl"
+        >
+          <span>Loyihalarimni Ko'rish</span>
+          <svg 
+            className="w-6 h-6 animate-bounce group-hover:animate-spin"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M13 5l7 7-7 7M5 5l7 7-7 7" 
+            />
+          </svg>
+        </motion.button>
+
+        {/* Floating elements */}
+        <div className="absolute -top-20 -right-20 w-72 h-72 bg-fuchsia-200/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-pink-200/30 rounded-full blur-3xl" />
+      </motion.div>
     </div>
   );
 }

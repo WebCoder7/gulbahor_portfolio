@@ -1,52 +1,76 @@
-// ContactInfo.tsx
-import { FaEnvelope, FaGithub, FaPhone, FaTelegram } from 'react-icons/fa';
+'use client';
+import {
+  FaEnvelope,
+  FaGithub,
+  FaPhone,
+  FaTelegram,
+  FaRegStar,
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaHandSparkles } from 'react-icons/fa6';
 
 const ContactInfo = () => {
   const contacts = [
     {
-      icon: <FaEnvelope className='w-5 h-5 sm:w-6 sm:h-6' color='#fff' />,
-      title: 'E-pochta',
-      link: 'https://mail.ru',
-      text: 'e-pochta@gmail.com',
+      icon: <FaEnvelope className='w-6 h-6' />,
+      title: 'Elektron pochta',
+      link: 'mailto:gulbahor@example.com',
+      text: 'gulbahor@example.com',
+      color: 'bg-gradient-to-br from-fuchsia-500 to-pink-500',
+      sparkle: 'text-fuchsia-400',
     },
     {
-      icon: <FaGithub className='w-5 h-5 sm:w-6 sm:h-6' color='#fff' />, 
-      title: 'Github',
+      icon: <FaGithub className='w-6 h-6' />,
+      title: 'GitHub profil',
       link: 'https://github.com',
-      text: 'github.com/gulbahorQodirova',
+      text: '@gulbahorQodirova',
+      color: 'bg-gradient-to-br from-purple-500 to-indigo-500',
+      sparkle: 'text-purple-400',
     },
     {
-      icon: <FaTelegram className='w-5 h-5 sm:w-6 sm:h-6' color='#0088cc' />, 
+      icon: <FaTelegram className='w-6 h-6' />,
       title: 'Telegram',
       link: 'https://t.me/qodirovagulbahor71',
-      text: 't.me/qodirovagulbahor71',
+      text: '@qodirovagulbahor71',
+      color: 'bg-gradient-to-br from-sky-500 to-cyan-500',
+      sparkle: 'text-sky-400',
     },
     {
-      icon: <FaPhone className='w-5 h-5 sm:w-6 sm:h-6' color='#34D399' />, 
+      icon: <FaPhone className='w-6 h-6' />,
       title: 'Telefon raqam',
       link: 'tel:+998931120922',
-      text: '+998 (93) 112 09 22',
+      text: '+998 93 112 09 22',
+      color: 'bg-gradient-to-br from-emerald-500 to-teal-500',
+      sparkle: 'text-emerald-400',
     },
   ];
 
   return (
-    <div className='mt-4 space-y-3 sm:space-y-4'>
+    <div className='space-y-5 relative z-20'>
       {contacts.map((contact, index) => (
-        <a
+        <motion.a
           key={index}
           href={contact.link}
-          className='flex items-center gap-3 sm:gap-4 bg-gray-800 p-2 sm:p-3 rounded-lg hover:bg-gray-700 transition-colors duration-200'
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className='group relative flex items-center gap-4 p-4 bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all border-2 border-white/50'
           target='_blank'
           rel='noopener noreferrer'
         >
-          <div className='w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center'>
+          <div className='absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-xl' />
+          <div className={`${contact.color} p-3 rounded-xl shadow-lg z-10`}>
             {contact.icon}
           </div>
-          <div className='flex-1 min-w-0'>
-            <p className='text-white text-sm sm:text-base font-medium truncate'>{contact.title}</p>
-            <p className='text-gray-400 text-xs sm:text-sm truncate'>{contact.text}</p>
+          <div className='flex-1 z-10'>
+            <p className='text-lg font-bold bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent'>
+              {contact.title}
+            </p>
+            <p className='text-sm text-gray-600 font-medium'>{contact.text}</p>
           </div>
-        </a>
+          <FaHandSparkles
+            className={`absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 ${contact.sparkle} transition-opacity duration-300`}
+          />
+        </motion.a>
       ))}
     </div>
   );
