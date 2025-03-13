@@ -24,10 +24,8 @@ const ProfileCard = () => {
         mouseY.set(e.clientY - rect.top);
       }}
     >
-      {/* Dynamic gradient layer */}
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,#fff0f980_0%,transparent_60%)] animate-pulse-slow' />
 
-      {/* Floating holographic particles */}
       {isMounted && (
         <div className='absolute inset-0 animate-particle-float'>
           {[
@@ -52,7 +50,6 @@ const ProfileCard = () => {
       )}
 
       <div className='relative z-10'>
-        {/* Profile image with dynamic shadow */}
         <motion.div
           whileHover={{ rotate: 5, scale: 1.05 }}
           className='group relative w-28 h-28 xs:w-32 xs:h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 mx-auto mb-4 sm:mb-6 md:mb-8'
@@ -67,12 +64,10 @@ const ProfileCard = () => {
           />
         </motion.div>
 
-        {/* Name with animated gradient */}
         <motion.h2 className='text-xl xs:text-2xl sm:text-3xl md:text-3xl font-bold text-center mb-1 sm:mb-2 px-2'>
           Gulbahor Qodirova
         </motion.h2>
 
-        {/* Title with floating effect */}
         <motion.p
           className='text-sm xs:text-base sm:text-lg md:text-lg text-center text-pink-700 font-medium mb-3 xs:mb-4 sm:mb-6 px-2'
           whileHover={{ y: -2 }}
@@ -82,7 +77,6 @@ const ProfileCard = () => {
           </span>
         </motion.p>
 
-        {/* Tags with staggered animation */}
         <div className='flex flex-wrap justify-center gap-2 xs:gap-3 mb-4 xs:mb-6 sm:mb-8 md:mb-10 px-2'>
           {['Dizayn', 'Taʼlim', 'Texnologiya', "Ko'nikmalar", 'Ijod'].map(
             (tag, i) => (
@@ -107,7 +101,6 @@ const ProfileCard = () => {
         <ContactInfo />
       </div>
 
-      {/* Global styles */}
       <style jsx global>{`
         @keyframes particle-float {
           0%,

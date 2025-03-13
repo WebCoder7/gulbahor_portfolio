@@ -1,15 +1,12 @@
 'use client';
-import {
-  FaEnvelope,
-  FaGithub,
-  FaPhone,
-  FaTelegram,
-  FaRegStar,
-} from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaPhone, FaTelegram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { FaHandSparkles } from 'react-icons/fa6';
+import { useState } from 'react'; 
 
 const ContactInfo = () => {
+  const [showCopied, setShowCopied] = useState(false); 
+
   const contacts = [
     {
       icon: <FaEnvelope className='w-6 h-6' />,
@@ -42,15 +39,35 @@ const ContactInfo = () => {
       text: '+998 93 112 09 22',
       color: 'bg-gradient-to-br from-emerald-500 to-teal-500',
       sparkle: 'text-emerald-400',
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (!/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+          e.preventDefault();
+          navigator.clipboard.writeText('+998931120922');
+          setShowCopied(true);
+          setTimeout(() => setShowCopied(false), 2000);
+        }
+      },
     },
   ];
 
   return (
     <div className='space-y-5 relative z-20'>
+      {showCopied && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          className='fixed bottom-4 right-4 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-lg shadow-lg font-medium'
+        >
+          📱 Raqam nusxalandi!
+        </motion.div>
+      )}
+
       {contacts.map((contact, index) => (
         <motion.a
           key={index}
           href={contact.link}
+          onClick={contact.onClick} 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className='group relative flex items-center gap-4 p-4 bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all border-2 border-white/50'
