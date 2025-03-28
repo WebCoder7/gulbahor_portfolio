@@ -3,7 +3,6 @@
 export default function AboutPageMe() {
   return (
     <div className='relative flex-1 bg-gradient-to-br from-pink-100 to-fuchsia-100 p-6 sm:p-8 md:p-12 lg:p-8 rounded-2xl xl:rounded-[2rem] shadow-xl lg:shadow-2xl overflow-hidden'>
-      {/* Background effects */}
       <div className='absolute inset-0 bg-fuchsia-200/10 backdrop-blur-lg' />
       <div className='absolute -top-20 -right-20 w-48 h-48 bg-fuchsia-200/30 rounded-full blur-2xl' />
       <div className='absolute -bottom-20 -left-20 w-48 h-48 bg-pink-200/30 rounded-full blur-2xl' />
