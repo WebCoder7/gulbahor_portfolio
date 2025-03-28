@@ -29,7 +29,7 @@ export default function AboutMe() {
         </h1>
 
         <p className='text-base sm:text-lg md:text-xl lg:text-2xl text-pink-800/90 leading-relaxed max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto font-medium'>
-          Veb-dizayn va taʼlim sohasida{' '}
+          Veb-dizayn va talim sohasida
           <span className='text-fuchsia-600 font-bold'>10+ yillik tajriba</span>
           bilan yorqin va innovatsion yechimlar yaratishga ixtisoslashganman.
           Har bir loyihamda

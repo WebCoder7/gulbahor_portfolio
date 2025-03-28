@@ -2,6 +2,7 @@
 import ContactInfo from './ContactInfo';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const ProfileCard = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -57,10 +58,13 @@ const ProfileCard = () => {
         >
           <div className='absolute inset-0 bg-gradient-to-br from-fuchsia-400/30 to-pink-400/30 rounded-full blur-xl md:blur-2xl group-hover:blur-2xl md:group-hover:blur-3xl transition-all duration-300' />
           <div className='absolute inset-0 border-4 border-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity' />
-          <img
-            src='/'
-            alt=''
+          <Image
+            src='/v1491734-1021232995.jpg'
+            alt='Gulbahor Qodirova'
+            width={200}
+            height={200}
             className='w-full h-full object-cover rounded-full shadow-lg md:shadow-2xl transition-transform duration-300 group-hover:scale-105'
+            priority
           />
         </motion.div>
 
