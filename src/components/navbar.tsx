@@ -11,7 +11,6 @@ import Container from './container';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
-
   const navLinks = [
     { path: '/', label: 'Bosh Sahifa' },
     { path: '/about', label: 'Haqida' },
@@ -39,6 +38,8 @@ export default function Navbar() {
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0 },
+    
+
     exit: { opacity: 0, y: -20 },
   };
 
